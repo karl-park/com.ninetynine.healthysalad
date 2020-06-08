@@ -1,0 +1,31 @@
+{
+	"header": {
+		"code": 0,
+		"message": null,
+	},
+	"body": {
+		"data": {
+			"base": [{
+				"name": "honey mustard",
+				"price": 1.2,
+				"currency": "S$"
+			}, {
+				"name": "tamari vinegrette",
+				"price": 1.8,
+				"currency": "S$"
+			}, {
+				"name": "thousand island",
+				"price": 1.4,
+				"currency": "S$"
+			}, {
+				"name": "creamy italian",
+				"price": 1.5,
+				"currency": "S$"
+			}, {
+				"name": "sesame umami",
+				"price": 2.0,
+				"currency": "S$"
+			}]
+		}
+	}
+}

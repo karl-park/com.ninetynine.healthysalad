@@ -1,0 +1,31 @@
+{
+	"header": {
+		"code": 0,
+		"message": null,
+	},
+	"body": {
+		"data": {
+			"base": [{
+				"name": "avocados",
+				"price": 2.7,
+				"currency": "S$"
+			}, {
+				"name": "sweet potatoes",
+				"price": 2.0,
+				"currency": "S$"
+			}, {
+				"name": "cherry tomatoes",
+				"price": 1.1,
+				"currency": "S$"
+			}, {
+				"name": "olives",
+				"price": 1.0,
+				"currency": "S$"
+			}, {
+				"name": "mush room",
+				"price": 1.7,
+				"currency": "S$"
+			}]
+		}
+	}
+}
