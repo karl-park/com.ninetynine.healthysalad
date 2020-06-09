@@ -20,8 +20,9 @@ public class loadData {
     private static final String TAG = loadData.class.getSimpleName();
 
     public loadData() {
-        for (int i = 0; i < ingredients.length(); i ++){
-    makeServiceCall(url + ingredienets[i]);
+        for (int i = 0; i < ingredients.length; i ++) {
+            makeServiceCall(url + ingredients[i]);
+        }
 
     }
 
