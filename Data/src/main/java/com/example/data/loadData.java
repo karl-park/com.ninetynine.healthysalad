@@ -63,4 +63,10 @@ public class loadData {
 
         return sb.toString();
     }
+
+    void parseData(){
+        //Parse Data
+    }
+
+
 }
