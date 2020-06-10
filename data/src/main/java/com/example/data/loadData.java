@@ -15,7 +15,7 @@ import java.net.URL;
 
 public class loadData {
     Gson gson = new Gson();
-    String url = "https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/"
+    String url = "https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/";
     String[] ingredients = {"base", "crunchy", "dressing","protein","soft" };
     private static final String TAG = loadData.class.getSimpleName();
 
