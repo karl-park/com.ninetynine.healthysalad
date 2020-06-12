@@ -7,8 +7,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Query
 
-interface Placeholder {
+interface Api{
     @GET("items")
+
     fun getItems(
         @Query("name") name: String,
         @Query("price") price: String,
@@ -32,8 +33,8 @@ interface Placeholder {
         }
     }
 
-    val item by lazy {
-        Placeholder.create()
+    val instance: Placeholder by lazy {
+
     }
 
 }

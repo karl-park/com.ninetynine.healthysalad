@@ -3,6 +3,8 @@ package com.example.data
 import retrofit2.Retrofit
 
 class DataRepo {
-    val retrofit: Retrofit =
- //loadData
+    private fun getItem() {
+        val item : Item
+        item = Placeholder.P
+    }
 }
