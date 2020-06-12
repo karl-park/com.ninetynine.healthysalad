@@ -14,7 +14,7 @@ interface Api{
         @Query("name") name: String,
         @Query("price") price: String,
         @Query("currency") currency: String
-    )
+    ): Call<Item>
 
     companion object {
         fun create(): Placeholder {
