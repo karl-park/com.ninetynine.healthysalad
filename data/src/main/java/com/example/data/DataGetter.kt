@@ -1,14 +1,10 @@
 package com.example.data
 
+import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface DataGetter {
-    val string: String
-    string = " https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/"
-    @GET(string)
-    fun getData(@Query)
-
-
-
+    @GET("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/{item}")
+    fun listItems(@Path("item") user: String?): Call<List<Item>>
 }
