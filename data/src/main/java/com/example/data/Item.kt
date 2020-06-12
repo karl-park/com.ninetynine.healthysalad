@@ -6,5 +6,4 @@ data class Item (
     val currency : String
 ){
 
-
 }
