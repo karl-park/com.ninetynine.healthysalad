@@ -9,10 +9,12 @@ object RetrofitClient {
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->
             val original = chain.request()
+
             val requestBuilder = original.newBuilder()
-                .addHeader("name", "name")
                 .method(original.method(), original.body())
+
             val request = requestBuilder.build()
+                chain.proceed(request)
         }.build()
 
 
@@ -20,7 +22,9 @@ object RetrofitClient {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client()
+            .client(okHttpClient)
+            .build()
 
+        retrofit.create(Api::class.java)
     }
 }
