@@ -1,6 +1,6 @@
 package com.example.data
 
 data class FoodType (
-    val item: Item
+    val item: List <Item>
 ) {
 }
