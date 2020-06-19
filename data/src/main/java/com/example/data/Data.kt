@@ -15,8 +15,16 @@ class Data {
 
     var service: DataGetter = retrofit.create(DataGetter::class.java)
 
-    var base: Call<List<Item>> = service.listItems("base")
+    //var base: Call<List<Item>> = service.listItems("base")
     var ingredients  = listOf<String>("base", "crunchy", "dressing","protein","soft")
 
-    for (item in ingredients)
+    fun loadData (){
+        for (item in ingredients) {
+            var item: Call<List<Item>> = service.listItems(item)
+                // print item
+
+            // TODO : convert item to object
+            // TODO: add to list
+        }
+    }
 }

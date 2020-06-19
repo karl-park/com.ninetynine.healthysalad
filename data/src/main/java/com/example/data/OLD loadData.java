@@ -1,3 +1,4 @@
+/*
 package com.example.data;
 import android.util.Log;
 import com.google.gson.Gson;
@@ -66,4 +67,4 @@ public class loadData {
     }
 
 
-}
+}*/
