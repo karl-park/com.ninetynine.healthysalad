@@ -1,4 +1,4 @@
-/*
+
 package com.example.data;
 import android.util.Log;
 import com.google.gson.Gson;
@@ -10,8 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-public class loadData {
+/*
+public class oldloadData {
     Gson gson = new Gson();
     String url = "https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/api/";
     String[] ingredients = {"base", "crunchy", "dressing","protein","soft" };

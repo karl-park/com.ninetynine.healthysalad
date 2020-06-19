@@ -1,3 +1,4 @@
+/*
 package com.example.data
 
 import okhttp3.OkHttpClient
@@ -27,4 +28,4 @@ object RetrofitClient {
 
         retrofit.create(Api::class.java)
     }
-}
+}*/

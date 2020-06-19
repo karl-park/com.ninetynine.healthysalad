@@ -7,6 +7,15 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     defaultConfig {
         //applicationId "com.example.healthysalad"
         minSdkVersion 27
@@ -45,10 +54,7 @@ android {
         implementation 'com.google.code.gson:gson:2.8.6'
         implementation 'com.squareup.retrofit2:retrofit:2.9.0'
         implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
-        implementation "com.squareup.retrofit2:retrofit:2.9.0"
         implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
-        implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 
         implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
 
