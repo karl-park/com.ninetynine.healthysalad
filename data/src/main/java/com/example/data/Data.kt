@@ -1,6 +1,8 @@
 package com.example.data
 
 import android.util.Log
+import com.example.domain.Base
+import com.example.domain.Item
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.*
@@ -25,28 +27,24 @@ class Data {
         var service: DataGetter = retrofit.create(DataGetter::class.java)
 
         for (item in ingredients) {
-            var call: Call<List<Item>> = service.listItems(item)
+            var call: Call<Item> = service.listItems(item)
 
+            call.enqueue(object: Callback<Item>{
+                override fun onFailure(call: Call<Item>, t: Throwable) {
+                    Log.d("LOG", t.toString())
+                }
+                override fun onResponse(call: Call<Item>, response: Response<Item>) {
 
-            call.enqueue(object: Callback<List<Item>>{
-                override fun onFailure(call: Call<List<Item>>, t: Throwable) {
-                    //TODO("Not yet implemented")
+                    //Log.d("Printing Item", response.body()?.body?.data?.base?.forEach (base.name))
+                    response.body()?.body?.data?.base?.forEach{item -> Log.d( "LOG", item.name)}
+
                 }
 
-                override fun onResponse(call: Call<List<Item>>, response: Response<List<Item>>) {
-                    //TODO("Not yet implemented")
-                    response.body()?.forEach{item -> Log.d("Printing Item", item.name)}
-                }
             })
-                // print item
-            //Log.d("TAG",item.name)
-
-
+            // print item
+            // Log.d("TAG",item.name)
             // TODO : convert item to object
             // TODO: add to list
-
-
-
         }
     }
 }
