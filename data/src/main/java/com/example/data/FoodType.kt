@@ -1,8 +1,8 @@
 package com.example.data
 
-import com.example.domain.Item
+import com.example.domain.Base
 
 data class FoodType (
-    val item: List <Item>
+    var item: List <Base>
 ) {
 }
