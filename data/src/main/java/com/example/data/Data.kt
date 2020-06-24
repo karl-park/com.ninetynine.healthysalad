@@ -2,8 +2,8 @@ package com.example.data
 
 import android.util.Log
 import com.example.domain.Base
+import com.example.domain.FoodType
 import com.example.domain.Item
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,7 +26,7 @@ class Data {
                 }
                 override fun onResponse(call: Call<Item>, response: Response<Item>) {
                     response.body()?.body?.data?.base?.forEach{item -> Log.d( "Called", item.name)}
-                    data = response.body()?.body?.data?.base ?: emptyList()
+                    data = response.body()?.body?.data?.base?: emptyList()
                 }
             })
         return data
