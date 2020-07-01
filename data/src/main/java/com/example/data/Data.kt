@@ -26,7 +26,7 @@ class Data {
                 }
                 override fun onResponse(call: Call<Item>, response: Response<Item>) {
                     response.body()?.body?.data?.base?.forEach{item -> Log.d( "Called", item.name)}
-                    data = response.body()?.body?.data?.base?: emptyList()
+                    onLoadSuccess()
                 }
             })
         return data
@@ -45,5 +45,9 @@ class Data {
         for (item in ingredients){
             loadItem(item)
         }
+    }
+
+    fun onLoadSuccess(){
+        data = response.body()?.body?.data?.base?: emptyList()
     }
 }
