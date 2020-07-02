@@ -8,12 +8,9 @@ import com.google.gson.GsonBuilder
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 class Data {
-    // to put data into classes
-    var repo: MutableList<FoodType> = mutableListOf()
-    //var base: Call<List<Item>> = service.listItems("base")
-    var ingredients  = listOf<String>("base.json", "crunchy.json", "dressing.json","protein.json","soft.json")
-    private fun loadData (item : String): List<Base> {
-        var data : List<Base> = emptyList()
+    var repo : MutableMap < String, List<Base>> = mutableMapOf()
+
+    private fun loadData (item : String) {
         var retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/")
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
@@ -26,18 +23,14 @@ class Data {
                 }
                 override fun onResponse(call: Call<Item>, response: Response<Item>) {
                     response.body()?.body?.data?.base?.forEach{item -> Log.d( "Called", item.name)}
-                    onLoadSuccess()
+                    onLoadSuccess(response, item)
                 }
             })
-        return data
     }
 
     private fun loadItem(item : String){
         val fileName = "$item.json"
-        var list = loadData(fileName)
-        var foodType = FoodType(list)
-        repo.add(foodType)
-        list.forEach { item -> Log.d("Added to list", item.name )}
+        loadData(fileName)
     }
 
     fun loadAllItems(){
@@ -47,7 +40,9 @@ class Data {
         }
     }
 
-    fun onLoadSuccess(){
-        data = response.body()?.body?.data?.base?: emptyList()
+    fun onLoadSuccess(response : Response<Item>, item: String){
+       var data :List<Base> = response.body()?.body?.data?.base?: emptyList()
+        repo[item] = data
+        data.forEach { item -> Log.d("Added to list", item.name )}
     }
 }
