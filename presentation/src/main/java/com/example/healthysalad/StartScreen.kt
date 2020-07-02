@@ -47,7 +47,6 @@ class StartScreen : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment StartScreen.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             StartScreen().apply {
