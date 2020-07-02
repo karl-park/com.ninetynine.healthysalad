@@ -2,7 +2,6 @@ package com.example.data
 
 import android.util.Log
 import com.example.domain.Base
-import com.example.domain.FoodType
 import com.example.domain.Item
 import com.google.gson.GsonBuilder
 import retrofit2.*
@@ -43,6 +42,7 @@ class Data {
     fun onLoadSuccess(response : Response<Item>, item: String){
        var data :List<Base> = response.body()?.body?.data?.base?: emptyList()
         repo[item] = data
-        data.forEach { item -> Log.d("Added to list", item.name )}
+        data.forEach { item -> Log.d("Added to repo", item.name )}
+        //repo.forEach { v -> Log.d("In Repo", "$v" )}
     }
 }
