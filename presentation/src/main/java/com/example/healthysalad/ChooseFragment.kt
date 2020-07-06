@@ -39,7 +39,6 @@ class ChooseFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val v: View = inflater.inflate(R.layout.fragment_choose, activity_main, false)
-
         val openTitleFrag: Button = v.findViewById(R.id.open_title_frag)
 
         openTitleFrag.setOnClickListener(View.OnClickListener {

@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Data().loadAllItems()
+
         var titleFragmentInstance : TitleFragment = TitleFragment()
         this.supportFragmentManager.beginTransaction()
             .replace(R.id.activity_main, titleFragmentInstance)

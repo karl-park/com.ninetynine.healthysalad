@@ -1,12 +1,12 @@
 package com.example.healthysalad
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-
+import com.example.data.Data
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Title_Fragment.newInstance] factory method to
+ * Use the [SelectBaseFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TitleFragment : Fragment() {
+class SelectBaseFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -28,18 +28,6 @@ class TitleFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-
-            /*
-            var v: View = layoutInflater.inflate(R.layout.fragment_choose, activity_main, false)
-            val chooseFragment = ChooseFragment()
-            val openChooseFrag: Button = v.findViewById(R.id.open_choose_frag)
-
-            openChooseFrag.setOnClickListener {
-                activity!!.supportFragmentManager
-                    .beginTransaction().replace(R.id.activity_main, chooseFragment)
-                    .addToBackStack(null).commit()
-            }
-*/
         }
     }
 
@@ -47,17 +35,21 @@ class TitleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Data().loadItem("base")
+        // Inflate the layout for this fragment
+        var v : View = inflater.inflate(R.layout.fragment_select_base,container, false)
+        val openTitleFragment = TitleFragment()
 
-        var v : View = inflater.inflate(R.layout.fragment_title,container, false)
-        val createSalad = SelectBaseFragment()
-        val openChooseFrag: Button = v.findViewById(R.id.create_salad)
-
-        openChooseFrag.setOnClickListener {
+        val openBackFrag: Button = v.findViewById(R.id.back_button)
+        openBackFrag.setOnClickListener {
             activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, createSalad)
+                .beginTransaction().replace(R.id.activity_main, openTitleFragment)
                 .addToBackStack(null).commit()
         }
+
+
         return v
+
     }
 
     companion object {
@@ -67,12 +59,12 @@ class TitleFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Title_Fragment.
+         * @return A new instance of fragment SelectBaseFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            TitleFragment().apply {
+            SelectBaseFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -29,7 +29,7 @@ class Data {
         })
     }
 
-    private fun loadItem(item: String) {
+    fun loadItem(item: String) {
         val fileName = "$item.json"
         loadData(fileName)
     }
