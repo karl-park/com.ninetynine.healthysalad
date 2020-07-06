@@ -1,8 +1,9 @@
 package com.example.healthysalad
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.data.Data
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,5 +11,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Data().loadAllItems()
+        var titleFragmentInstance : TitleFragment = TitleFragment()
+        this.supportFragmentManager.beginTransaction()
+            .replace(R.id.activity_main, titleFragmentInstance)
+            .addToBackStack(null).commit()
+
+
     }
 }

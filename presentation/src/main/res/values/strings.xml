@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">HealthySalad</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Please choose one of the options</string>
+    <string name="hello_blank_fragment">This is the title fragment</string>
     <string name="choose_string">Choose Menu</string>
     <string name="customise_button_text">Customise</string>
+    <string name="open_choose_frag">choose menu</string>
+    <string name="open_title_frag">go to title</string>
+    <string name="choose_frag_text">this is the choose fragment</string>
+    <string name="title_frag_text">this is the title fragment</string>
 
 </resources>
