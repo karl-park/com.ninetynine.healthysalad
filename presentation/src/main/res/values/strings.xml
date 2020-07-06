@@ -14,5 +14,6 @@
     <string name="select_base_text">Select Base</string>
     <string name="back_button_text">Back</string>
     <string name="next_button">next</string>
+    <string name="select_protein_text">Select Protein</string>
 
 </resources>

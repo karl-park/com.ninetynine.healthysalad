@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.data.Data
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SelectBaseFragment.newInstance] factory method to
+ * Use the [SelectProteinFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SelectBaseFragment : Fragment() {
+class SelectProteinFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,27 +34,17 @@ class SelectBaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Data().loadItem("base")
         // Inflate the layout for this fragment
-        var v : View = inflater.inflate(R.layout.fragment_select_base,container, false)
+
+        var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {
             activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, TitleFragment())
+                .beginTransaction().replace(R.id.activity_main, SelectBaseFragment())
                 .addToBackStack(null).commit()
         }
-
-        val openNextFrag: Button = v.findViewById(R.id.next_button)
-        openNextFrag.setOnClickListener{
-            activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, SelectProteinFragment())
-                .addToBackStack(null).commit()
-        }
-
-
         return v
-
     }
 
     companion object {
@@ -65,12 +54,12 @@ class SelectBaseFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SelectBaseFragment.
+         * @return A new instance of fragment SelectProteinFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SelectBaseFragment().apply {
+            SelectProteinFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
