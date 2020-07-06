@@ -29,16 +29,6 @@ class ChooseFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
 
-            val v: View = layoutInflater.inflate(R.layout.fragment_choose, activity_main, false)
-            //val secondFragment = ChooseFragment()
-            val openTitleFrag: Button = v.findViewById(R.id.open_title_frag)
-
-            openTitleFrag.setOnClickListener(View.OnClickListener {
-                activity!!.supportFragmentManager
-                    .beginTransaction().replace(R.id.activity_main, TitleFragment())
-                    .addToBackStack(null).commit()
-            })
-
         }
     }
 
@@ -47,7 +37,18 @@ class ChooseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_choose, container, false)
+
+        val v: View = inflater.inflate(R.layout.fragment_choose, activity_main, false)
+
+        val openTitleFrag: Button = v.findViewById(R.id.open_title_frag)
+
+        openTitleFrag.setOnClickListener(View.OnClickListener {
+            activity!!.supportFragmentManager
+                .beginTransaction().replace(R.id.activity_main, TitleFragment())
+                .addToBackStack(null).commit()
+        })
+
+        return v
     }
 
     companion object {

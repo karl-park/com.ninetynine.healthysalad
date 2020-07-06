@@ -3,6 +3,7 @@ package com.example.healthysalad
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
@@ -30,16 +31,17 @@ class TitleFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
 
-            val v: View = layoutInflater.inflate(R.layout.fragment_choose, activity_main, false)
-            //val secondFragment = ChooseFragment()
+            /*
+            var v: View = layoutInflater.inflate(R.layout.fragment_choose, activity_main, false)
+            val chooseFragment = ChooseFragment()
             val openChooseFrag: Button = v.findViewById(R.id.open_choose_frag)
 
-            openChooseFrag.setOnClickListener(View.OnClickListener {
+            openChooseFrag.setOnClickListener {
                 activity!!.supportFragmentManager
-                    .beginTransaction().replace(R.id.activity_main, ChooseFragment())
+                    .beginTransaction().replace(R.id.activity_main, chooseFragment)
                     .addToBackStack(null).commit()
-            })
-
+            }
+*/
         }
     }
 
@@ -49,6 +51,15 @@ class TitleFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var v : View = inflater.inflate(R.layout.fragment_title,container, false)
+        val chooseFragment = ChooseFragment()
+        val openChooseFrag: Button = v.findViewById(R.id.open_choose_frag)
+
+        openChooseFrag.setOnClickListener {
+            activity!!.supportFragmentManager
+                .beginTransaction().replace(R.id.activity_main, chooseFragment)
+                .addToBackStack(null).commit()
+        }
+
         return v
     }
 
