@@ -36,6 +36,6 @@
         android:layout_marginEnd="@dimen/box_side_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/create_salad_button" />
+        android:text="@string/create_salad_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
