@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import com.example.data.Data
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SelectProteinFragment.newInstance] factory method to
+ * Use the [SelectCrunchyFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SelectProteinFragment : Fragment() {
+class SelectCrunchyFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,26 +34,7 @@ class SelectProteinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        Data().loadItem("protein")
-
-        var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
-
-        val openBackFrag: Button = v.findViewById(R.id.back_button)
-        openBackFrag.setOnClickListener {
-            activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, SelectBaseFragment())
-                .addToBackStack(null).commit()
-        }
-
-        val openNextFrag: Button = v.findViewById(R.id.next_button)
-        openNextFrag.setOnClickListener{
-            activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, SelectCrunchyFragment())
-                .addToBackStack(null).commit()
-        }
-
-
-        return v
+        return inflater.inflate(R.layout.fragment_select_crunchy, container, false)
     }
 
     companion object {
@@ -65,12 +44,12 @@ class SelectProteinFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SelectProteinFragment.
+         * @return A new instance of fragment SelectCrunchyFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SelectProteinFragment().apply {
+            SelectCrunchyFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
