@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -40,10 +41,10 @@
 
     <ScrollView
         android:id="@+id/salad_selections"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/next_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,33 +54,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hello this is a test">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/box_side_margin"
-                android:layout_marginTop="@dimen/box_top_margin"
-                android:text="Romaine"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+            >
 
        <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/box_width"
+           android:layout_height="@dimen/box_width"
             android:layout_marginStart="@dimen/box_side_margin"
-            android:layout_marginTop="@dimen/box_top_margin"
+            android:layout_marginTop="10dp"
             android:text="Romaine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/box_width"
+            android:layout_height="@dimen/box_width"
             android:layout_marginEnd="@dimen/box_side_margin"
             android:text="Spinach"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +77,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/box_width"
+            android:layout_height="@dimen/box_width"
             android:layout_marginStart="@dimen/box_side_margin"
             android:layout_marginTop="@dimen/back_button_margin_top"
             android:text="Cabbage"
@@ -97,8 +87,8 @@
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/box_width"
+            android:layout_height="@dimen/box_width"
             android:layout_marginTop="@dimen/back_button_margin_top"
             android:layout_marginEnd="@dimen/box_side_margin"
             android:text="Arugula"
@@ -107,8 +97,8 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/box_width"
+            android:layout_height="@dimen/box_width"
             android:layout_marginStart="@dimen/box_side_margin"
             android:layout_marginTop="@dimen/back_button_margin_top"
             android:text="Green Mix"
