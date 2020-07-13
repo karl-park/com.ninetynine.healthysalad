@@ -5,9 +5,3 @@ data class Order (
     /*map
     (base : Base, CC, crunchy:Base, protein:Base)*/
 )
-{
-
-
-
-
-}
