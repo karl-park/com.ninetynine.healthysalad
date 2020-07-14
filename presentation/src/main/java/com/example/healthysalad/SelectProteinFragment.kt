@@ -48,7 +48,7 @@ class SelectProteinFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(v.context)
         recyclerView.adapter = MyAdapter(repoData)
-
+        (recyclerView.adapter as MyAdapter).notifyItemChanged(0)
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {

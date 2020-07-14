@@ -32,6 +32,15 @@ class MyAdapter(private val myDataset: List<Base>?) :
         holder.textView.text = myDataset?.get(position)?.name
     }
 
+    override fun getItemCount(): Int {
+        if (myDataset != null) {
+            return myDataset.size
+        }
+        else {
+            return 0
+        }
+    }
+
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount(): Int = myDataset?.size!!
+//    override fun getItemCount(): Int = myDataset?.size!!
 }

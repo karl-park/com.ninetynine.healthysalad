@@ -17,7 +17,7 @@ class MyActivity : Activity() {
         Log.d("RecyclerView", "Recycler View started")
         viewManager = LinearLayoutManager(this)
 
-        var proteinList = Data().repo["protein"]
+        var proteinList = Data().repo["protein"]!!
         viewAdapter = MyAdapter(proteinList)
 
         recyclerView = findViewById<RecyclerView>(R.id.protein_recycler_view).apply {

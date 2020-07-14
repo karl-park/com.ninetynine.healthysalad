@@ -1,6 +1,8 @@
 package com.example.data
 
 import android.util.Log
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.domain.Item
 import com.google.gson.GsonBuilder
@@ -46,6 +48,13 @@ class Data {
         repo[item] = data
         data.forEach { item -> Log.d("Added to repo", item.name) }
         //repo.forEach { v -> Log.d("In Repo", "$v" )}
+        // then inflate the layout???
+        //notify item changed?
+        //MyAdapter.notifyItemChanged()
+        var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
+        val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
+        (recyclerView.adapter as MyAdapter).notifyItemChanged(0)
+
     }
 
 
