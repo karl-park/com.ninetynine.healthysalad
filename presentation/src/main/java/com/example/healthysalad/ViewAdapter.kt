@@ -1,11 +1,11 @@
-package com.example.healthysalad
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.Base
+import com.example.healthysalad.R
 
-class MyAdapter(private val myDataset: Array<String>) :
+class MyAdapter(private val myDataset: List<Base>?) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -19,7 +19,7 @@ class MyAdapter(private val myDataset: Array<String>) :
                                     viewType: Int): MyAdapter.MyViewHolder {
         // create a new view
         val textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.my_text_view, parent, false) as TextView
+            .inflate(R.layout.fragment_select_protein, parent, false) as TextView
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(textView)
@@ -29,9 +29,9 @@ class MyAdapter(private val myDataset: Array<String>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.textView.text = myDataset[position]
+        holder.textView.text = myDataset?.get(position)?.name
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = myDataset.size
+    override fun getItemCount(): Int = myDataset?.size!!
 }

@@ -8,7 +8,7 @@ import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Data {
-    var repo: MutableMap<String, List<Base>> = mutableMapOf()
+    var repo: MutableMap <String, List<Base>> = mutableMapOf()
 
     private fun loadData(item: String) {
         var retrofit: Retrofit = Retrofit.Builder()
@@ -21,7 +21,6 @@ class Data {
             override fun onFailure(call: Call<Item>, t: Throwable) {
                 Log.d("Called", t.toString())
             }
-
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
                 response.body()?.body?.data?.base?.forEach { item -> Log.d("Called", item.name) }
                 onLoadSuccess(response, item)
@@ -43,8 +42,11 @@ class Data {
 
     fun onLoadSuccess(response: Response<Item>, item: String) {
         var data: List<Base> = response.body()?.body?.data?.base ?: emptyList()
+        // Load to repo
         repo[item] = data
         data.forEach { item -> Log.d("Added to repo", item.name) }
         //repo.forEach { v -> Log.d("In Repo", "$v" )}
     }
+
+
 }
