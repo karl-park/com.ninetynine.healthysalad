@@ -47,6 +47,7 @@ class SelectProteinFragment : Fragment() {
         //data.loadItem(item, callback)
         data.loadItem(item) { abc ->
             viewAdapter.updateMyDataset(repoData)
+            Log.d("callback called" , "called 1 ")
         }
 
 
