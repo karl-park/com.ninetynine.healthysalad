@@ -35,7 +35,7 @@ class SelectBaseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Data().loadItem("base")
+        //Data().loadItem("base")
         // Inflate the layout for this fragment
         var v : View = inflater.inflate(R.layout.fragment_select_base,container, false)
 

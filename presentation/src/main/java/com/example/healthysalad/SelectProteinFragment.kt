@@ -46,7 +46,7 @@ class SelectProteinFragment : Fragment() {
         recyclerView.adapter = viewAdapter
         //data.loadItem(item, callback)
         data.loadItem(item) { abc ->
-            viewAdapter.updateMyDataset(data)
+            viewAdapter.updateMyDataset(repoData)
         }
 
 
