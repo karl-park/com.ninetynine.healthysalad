@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.R
 
-class MyAdapter(private val myDataset: List<Base>?) :
+class MyAdapter(private val myDataset: MutableList<Base>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -42,5 +42,10 @@ class MyAdapter(private val myDataset: List<Base>?) :
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-//    override fun getItemCount(): Int = myDataset?.size!!
+    // override fun getItemCount(): Int = myDataset?.size!!
+    fun updateMyDataset(list: List<Base>) {
+        myDataset.clear()
+        myDataset.addAll(list)
+        notifyItemInserted(0)
+    }
 }

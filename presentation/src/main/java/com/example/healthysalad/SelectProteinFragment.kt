@@ -35,20 +35,25 @@ class SelectProteinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val item = "protein"
-        val data = Data()
-        data.loadItem(item)
-        val repoData = data.repo[item]
-
-
         var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
-
-
         val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(v.context)
-        recyclerView.adapter = MyAdapter(repoData)
-        (recyclerView.adapter as MyAdapter).notifyItemChanged(0)
+        val data = Data()
+        val item = "protein"
+        val repoData = data.repoWithKey(item)
+        val viewAdapter = MyAdapter(repoData)
+        recyclerView.adapter = viewAdapter
+        //data.loadItem(item, callback)
+        data.loadItem(item) { data ->
+            viewAdapter.updateMyDataset(data)
+        }
+
+
+
+
+
+
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {

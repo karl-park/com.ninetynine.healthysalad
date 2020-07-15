@@ -1,8 +1,7 @@
 package com.example.data
 
+import android.net.ConnectivityManager
 import android.util.Log
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.domain.Item
 import com.google.gson.GsonBuilder
@@ -10,9 +9,12 @@ import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Data {
-    var repo: MutableMap <String, List<Base>> = mutableMapOf()
+    val repo: MutableMap <String, MutableList<Base>> = mutableMapOf()
 
-    private fun loadData(item: String) {
+    private fun loadData(
+        item: String,
+        callback: (List<Base>) -> Unit
+    ) {
         var retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/")
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
@@ -25,36 +27,35 @@ class Data {
             }
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
                 response.body()?.body?.data?.base?.forEach { item -> Log.d("Called", item.name) }
-                onLoadSuccess(response, item)
+                onLoadSuccess(response, item, callback)
             }
         })
     }
 
-    fun loadItem(item: String) {
+    /*fun loadItem(item: String) {
         val fileName = "$item.json"
         loadData(fileName)
+    }*/
+    fun loadItem(item: String, callback : ConnectivityManager.NetworkCallback) {
+        val fileName = "$item.json"
+        loadData(fileName, callback)
     }
-
-    fun loadAllItems() {
+/*
+    fun loadAllItems(callback: (List<Base>) -> Unit) {
         var ingredients = listOf<String>("base", "crunchy", "dressing", "protein", "soft")
         for (item in ingredients) {
-            loadItem(item)
+            loadItem(item,callback)
         }
-    }
+    }*/
+    fun repoWithKey(key: String) : MutableList<Base> = repo[key] ?: mutableListOf()
 
-    fun onLoadSuccess(response: Response<Item>, item: String) {
-        var data: List<Base> = response.body()?.body?.data?.base ?: emptyList()
+    fun onLoadSuccess(response: Response<Item>, item: String,callback: (List<Base>) -> Unit) {
+        var data: MutableList<Base> = response.body()?.body?.data?.base ?: mutableListOf<Base>()
         // Load to repo
         repo[item] = data
         data.forEach { item -> Log.d("Added to repo", item.name) }
         //repo.forEach { v -> Log.d("In Repo", "$v" )}
-        // then inflate the layout???
-        //notify item changed?
-        //MyAdapter.notifyItemChanged()
-        var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
-        val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
-        (recyclerView.adapter as MyAdapter).notifyItemChanged(0)
-
+        //callback(item)
     }
 
 

@@ -19,7 +19,7 @@ data class Body(
 )
 
 data class Data(
-    var base: List<Base>
+    var base: MutableList<Base>
 )
 
 data class Base(
