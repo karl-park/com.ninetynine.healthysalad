@@ -46,6 +46,6 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
     fun updateMyDataset(list: List<Base>) {
         myDataset.clear()
         myDataset.addAll(list)
-        notifyItemInserted(0)
+        notifyDataSetChanged()
     }
 }

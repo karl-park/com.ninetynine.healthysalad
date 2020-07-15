@@ -13,7 +13,7 @@ class Data {
 
     private fun loadData(
         item: String,
-        callback: (List<Base>) -> Unit
+        callback: NetworkCallback
     ) {
         var retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/")
@@ -36,7 +36,10 @@ class Data {
         val fileName = "$item.json"
         loadData(fileName)
     }*/
-    fun loadItem(item: String, callback : ConnectivityManager.NetworkCallback) {
+    interface NetworkCallback {
+        fun onSuccess(item: List<Base>)
+    }
+    fun loadItem(item: String, callback : NetworkCallback) {
         val fileName = "$item.json"
         loadData(fileName, callback)
     }
@@ -49,13 +52,13 @@ class Data {
     }*/
     fun repoWithKey(key: String) : MutableList<Base> = repo[key] ?: mutableListOf()
 
-    fun onLoadSuccess(response: Response<Item>, item: String,callback: (List<Base>) -> Unit) {
+    fun onLoadSuccess(response: Response<Item>, item: String,callback: NetworkCallback) {
         var data: MutableList<Base> = response.body()?.body?.data?.base ?: mutableListOf<Base>()
         // Load to repo
         repo[item] = data
         data.forEach { item -> Log.d("Added to repo", item.name) }
         //repo.forEach { v -> Log.d("In Repo", "$v" )}
-        //callback(item)
+        callback(item)
     }
 
 

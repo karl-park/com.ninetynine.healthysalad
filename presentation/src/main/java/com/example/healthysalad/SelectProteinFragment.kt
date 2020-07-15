@@ -45,14 +45,9 @@ class SelectProteinFragment : Fragment() {
         val viewAdapter = MyAdapter(repoData)
         recyclerView.adapter = viewAdapter
         //data.loadItem(item, callback)
-        data.loadItem(item) { data ->
+        data.loadItem(item) { abc ->
             viewAdapter.updateMyDataset(data)
         }
-
-
-
-
-
 
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
