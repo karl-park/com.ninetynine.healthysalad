@@ -9,7 +9,7 @@ import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Data {
-    val repo: MutableMap <String, MutableList<Base>> = mutableMapOf()
+    var repo: MutableMap <String, MutableList<Base>> = mutableMapOf()
 
     private fun loadData(
         item: String,

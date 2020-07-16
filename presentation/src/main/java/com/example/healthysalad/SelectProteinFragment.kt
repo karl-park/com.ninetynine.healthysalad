@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.Data
+import java.util.Observer
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -35,21 +37,34 @@ class SelectProteinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
-        val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(v.context)
-        val data = Data()
         val item = "protein"
+        val v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
+
+        val data = Data()
+
+        var viewManager: RecyclerView.LayoutManager = LinearLayoutManager(v.context)
+        var recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
+        recyclerView.setHasFixedSize(true)
+
+
+
         val repoData = data.repoWithKey(item)
         val viewAdapter = MyAdapter(repoData)
+        recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
-        //data.loadItem(item, callback)
+
         data.loadItem(item) { abc ->
             viewAdapter.updateMyDataset(repoData)
             Log.d("callback called" , "called 1 ")
         }
 
+        /*
+        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
+*/
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {
@@ -67,6 +82,7 @@ class SelectProteinFragment : Fragment() {
         return v
     }
 
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -83,3 +99,4 @@ class SelectProteinFragment : Fragment() {
             }
     }
 }
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
