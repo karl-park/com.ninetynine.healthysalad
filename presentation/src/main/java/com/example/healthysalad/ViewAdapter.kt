@@ -31,7 +31,7 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
         val view = layoutInflater.inflate(R.layout.text_item_view, parent, false) as TextView
         // set the view's size, margins, paddings and layout parameters
         //holder.textView.text = myDataset.get(position).name
-        Log.d("callback called" , "view hodler created ")
+        Log.d("callback called" , "view holder created ")
         return RecyclerViewAdapter(view)
     }
 
@@ -58,11 +58,13 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
     // Return the size of your dataset (invoked by the layout manager)
     // override fun getItemCount(): Int = myDataset?.size!!
     fun updateMyDataset(list: List<Base>) {
-        myDataset.clear()
+        //myDataset.clear()
+        Log.d("update my data set list:" , list.toString())
         myDataset.addAll(list)
         notifyDataSetChanged()
         notifyItemChanged(0)
         Log.d("callback called" , "called here ")
-
+        Log.d("mydataset" , myDataset.toString())
+        myDataset.forEach { item -> Log.d("Called in callback:", item.name) }
     }
 }

@@ -47,14 +47,14 @@ class SelectProteinFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
 
-
         val repoData = data.repoWithKey(item)
         val viewAdapter = MyAdapter(repoData)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
 
         data.loadItem(item) { abc ->
-            viewAdapter.updateMyDataset(repoData)
+            viewAdapter.updateMyDataset(abc)
+            Log.d("callback repodata" , repoData.toString())
             Log.d("callback called" , "called 1 ")
         }
 

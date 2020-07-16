@@ -57,7 +57,7 @@ class Data {
         // Load to repo
         repo[item] = data
         data.forEach { item -> Log.d("Added to repo", item.name) }
-        //repo.forEach { v -> Log.d("In Repo", "$v" )}
+        repo.forEach { v -> Log.d("In Repo", "$v" )}
         callback(data)
     }
 
