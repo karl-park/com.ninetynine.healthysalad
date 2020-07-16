@@ -4,13 +4,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
-import com.example.healthysalad.R
-import com.example.healthysalad.RecyclerViewAdapter
-import com.example.healthysalad.SelectProteinFragment
-import com.example.healthysalad.TextItemViewHolder
+import com.example.healthysalad.*
 
 class MyAdapter(private val myDataset: MutableList<Base>) :
-    RecyclerView.Adapter<RecyclerViewAdapter>() {
+    RecyclerView.Adapter<ViewHolder>() {
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -25,22 +22,24 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
     }
 
     // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewAdapter {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.text_item_view, parent, false) as TextView
+        val view = layoutInflater.inflate(R.layout.text_item_view, parent, false)
         // set the view's size, margins, paddings and layout parameters
         //holder.textView.text = myDataset.get(position).name
         Log.d("callback called" , "view holder created ")
-        return RecyclerViewAdapter(view)
+        return ViewHolder(view)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: RecyclerViewAdapter, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         val item = myDataset[position]
-        holder.textView.text = item.name
+        val res = holder.itemView.context.resources
+        holder.itemName.text = item.name
+        //holder.itemButton.text = item.name
         //holder.textView.text = myDataset.get(position).name
         Log.d("callback called" , "called on bindviewholder ")
 
