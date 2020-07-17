@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.Data
@@ -42,7 +43,8 @@ class SelectProteinFragment : Fragment() {
 
         val data = Data()
 
-        var viewManager: RecyclerView.LayoutManager = LinearLayoutManager(v.context)
+        //var viewManager: RecyclerView.LayoutManager = LinearLayoutManager(v.context)
+        var viewManager: RecyclerView.LayoutManager = GridLayoutManager(v.context, 2)
         var recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
 

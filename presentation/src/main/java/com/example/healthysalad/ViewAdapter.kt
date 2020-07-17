@@ -39,7 +39,7 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
         val item = myDataset[position]
         val res = holder.itemView.context.resources
         holder.itemName.text = item.name
-        //holder.itemButton.text = item.name
+        holder.itemButton.text = item.name
         //holder.textView.text = myDataset.get(position).name
         Log.d("callback called" , "called on bindviewholder ")
 
