@@ -6,6 +6,15 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     defaultConfig {
         applicationId "com.example.healthysalad"
         minSdkVersion 27
@@ -46,5 +55,6 @@ dependencies {
 
     implementation project(':data')
     implementation project(':domain')
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
 
 }
