@@ -18,7 +18,5 @@ class MainActivity : AppCompatActivity() {
         this.supportFragmentManager.beginTransaction()
             .replace(R.id.activity_main, titleFragmentInstance)
             .addToBackStack(null).commit()
-
-
     }
 }

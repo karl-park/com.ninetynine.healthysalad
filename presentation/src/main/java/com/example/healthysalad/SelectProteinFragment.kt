@@ -48,25 +48,16 @@ class SelectProteinFragment : Fragment() {
         var recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
 
-
         val repoData = data.repoWithKey(item)
         val viewAdapter = MyAdapter(repoData)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
 
-        data.loadItem(item) { abc ->
-            viewAdapter.updateMyDataset(abc)
+        data.loadItem(item) { callback ->
+            viewAdapter.updateMyDataset(callback)
             Log.d("callback repodata" , repoData.toString())
             Log.d("callback called" , "called 1 ")
         }
-
-        /*
-        sleepTrackerViewModel.nights.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                adapter.data = it
-            }
-        })
-*/
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {

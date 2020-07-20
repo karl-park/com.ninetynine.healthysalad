@@ -38,20 +38,15 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
         // - replace the contents of the view with that element
         val item = myDataset[position]
         val res = holder.itemView.context.resources
-        holder.itemName.text = item.name
+        //holder.itemName.text = item.name
         holder.itemButton.text = item.name
+        holder.itemPosition = position
         //holder.textView.text = myDataset.get(position).name
-        Log.d("callback called" , "called on bindviewholder ")
-
+        Log.d("callback called" , "called on bindviewholder")
     }
 
     override fun getItemCount(): Int {
-        if (myDataset != null) {
-            return myDataset.size
-        }
-        else {
-            return 0
-        }
+        return myDataset.size
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -61,7 +56,7 @@ class MyAdapter(private val myDataset: MutableList<Base>) :
         Log.d("update my data set list:" , list.toString())
         myDataset.addAll(list)
         notifyDataSetChanged()
-        notifyItemChanged(0)
+        //notifyItemChanged(0)
         Log.d("callback called" , "called here ")
         Log.d("mydataset" , myDataset.toString())
         myDataset.forEach { item -> Log.d("Called in callback:", item.name) }

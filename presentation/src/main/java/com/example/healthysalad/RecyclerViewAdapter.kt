@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerViewAdapter(val textView: TextView): RecyclerView.ViewHolder(textView) {
 }
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-    val itemName : TextView = itemView.findViewById(R.id.itemName)
+    //val itemName : TextView = itemView.findViewById(R.id.itemName)
     val itemButton : Button = itemView.findViewById(R.id.itemButton)
-
+    var itemPosition : Int = 0
 }
