@@ -40,14 +40,10 @@ class SelectProteinFragment : Fragment() {
         // Inflate the layout for this fragment
         val item = "protein"
         val v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
-
         val data = Data()
-
-        //var viewManager: RecyclerView.LayoutManager = LinearLayoutManager(v.context)
-        var viewManager: RecyclerView.LayoutManager = GridLayoutManager(v.context, 2)
-        var recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
+        val viewManager: RecyclerView.LayoutManager = GridLayoutManager(v.context, 2)
+        val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
-
         val repoData = data.repoWithKey(item)
         val viewAdapter = ViewAdapter(repoData)
         recyclerView.layoutManager = viewManager
