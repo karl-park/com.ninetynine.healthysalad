@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.*
 
-class MyAdapter(private val myDataset: MutableList<Base>) :
+class ViewAdapter(private val myDataset: MutableList<Base>) :
     RecyclerView.Adapter<ViewHolder>() {
 
     // Provide a reference to the views for each data item

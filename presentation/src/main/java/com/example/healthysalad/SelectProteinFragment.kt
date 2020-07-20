@@ -1,6 +1,6 @@
 package com.example.healthysalad
 
-import MyAdapter
+import ViewAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -49,7 +49,7 @@ class SelectProteinFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
 
         val repoData = data.repoWithKey(item)
-        val viewAdapter = MyAdapter(repoData)
+        val viewAdapter = ViewAdapter(repoData)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
 
