@@ -1,6 +1,7 @@
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +44,11 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         //holder.itemName.text = item.name
         holder.itemButton.text = item.name
         holder.itemPosition = position
+        val button : Button = holder.itemButton
+        button.setOnClickListener {
+            Log.d("Button" , "Pressed $item")
+
+        }
         holder.itemButton.setOnClickListener{
             //val toast = Toast.makeText(getApplicationContext(),"$item added", Toast.LENGTH_SHORT).show()
             //addItem(item)
