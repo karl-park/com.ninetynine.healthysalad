@@ -11,10 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Data {
     var repo: MutableMap <String, MutableList<Base>> = mutableMapOf()
 
-    private fun loadData(
-        item: String,
-        callback: (List<Base>) -> (Unit)
-    ) {
+    private fun loadData(item: String, callback: (List<Base>) -> (Unit)) {
         var retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://raw.githubusercontent.com/karl-park/com.ninetynine.healthysalad/master/server/")
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
@@ -32,10 +29,6 @@ class Data {
         })
     }
 
-    /*fun loadItem(item: String) {
-        val fileName = "$item.json"
-        loadData(fileName)
-    }*/
     interface NetworkCallback {
         fun onSuccess(item: List<Base>)
     }
@@ -50,6 +43,7 @@ class Data {
             loadItem(item,callback)
         }
     }*/
+    
     fun repoWithKey(key: String) : MutableList<Base> = repo[key] ?: mutableListOf()
 
     fun onLoadSuccess(response: Response<Item>, item: String,callback : (List<Base>) -> (Unit)) {

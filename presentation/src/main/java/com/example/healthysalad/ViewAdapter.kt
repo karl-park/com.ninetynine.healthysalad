@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.*
+import com.example.domain.Order
 
 class ViewAdapter(private val myDataset: MutableList<Base>) :
     RecyclerView.Adapter<ViewHolder>() {
@@ -41,6 +42,9 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         //holder.itemName.text = item.name
         holder.itemButton.text = item.name
         holder.itemPosition = position
+        holder.itemButton.setOnClickListener{
+            addItem(item)
+        }
         //holder.textView.text = myDataset.get(position).name
         Log.d("callback called" , "called on bindviewholder")
     }

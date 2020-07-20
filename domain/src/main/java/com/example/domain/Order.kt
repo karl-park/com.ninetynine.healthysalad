@@ -1,7 +1,19 @@
 package com.example.domain
 
-data class Order (
-    val test :String
+class Order (
+
     /*map
     (base : Base, CC, crunchy:Base, protein:Base)*/
 )
+{
+    val order : MutableList<Base> = mutableListOf()
+
+    fun addItem(base : Base) {
+        order.add(base)
+    }
+
+  fun getOrder(): MutableList<Base> {
+        return order
+    }
+
+}

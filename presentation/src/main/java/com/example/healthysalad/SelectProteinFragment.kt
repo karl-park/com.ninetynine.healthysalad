@@ -41,16 +41,16 @@ class SelectProteinFragment : Fragment() {
         val item = "protein"
         val v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
         val data = Data()
+        val repoData = data.repoWithKey(item)
         val viewManager: RecyclerView.LayoutManager = GridLayoutManager(v.context, 2)
+        val viewAdapter = ViewAdapter(repoData)
         val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
-        val repoData = data.repoWithKey(item)
-        val viewAdapter = ViewAdapter(repoData)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
 
-        data.loadItem(item) { callback ->
-            viewAdapter.updateMyDataset(callback)
+        data.loadItem(item) { dataResponse ->
+            viewAdapter.updateMyDataset(dataResponse)
             Log.d("callback repodata" , repoData.toString())
             Log.d("callback called" , "called 1 ")
         }
