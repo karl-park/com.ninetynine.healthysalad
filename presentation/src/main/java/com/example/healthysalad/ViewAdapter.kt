@@ -2,6 +2,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.*
@@ -43,7 +44,8 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         holder.itemButton.text = item.name
         holder.itemPosition = position
         holder.itemButton.setOnClickListener{
-            addItem(item)
+            //val toast = Toast.makeText(getApplicationContext(),"$item added", Toast.LENGTH_SHORT).show()
+            //addItem(item)
         }
         //holder.textView.text = myDataset.get(position).name
         Log.d("callback called" , "called on bindviewholder")
