@@ -1,15 +1,16 @@
+import android.app.Activity
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.*
 import com.example.domain.Order
 
-class ViewAdapter(private val myDataset: MutableList<Base>) :
+class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
     RecyclerView.Adapter<ViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -23,7 +24,7 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         field = value
         notifyDataSetChanged()
     }
-
+    val context = context
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
@@ -44,17 +45,18 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         //holder.itemName.text = item.name
         holder.itemButton.text = item.name
         holder.itemPosition = position
-        val button : Button = holder.itemButton
+/*        val button : Button = holder.itemButton
         button.setOnClickListener {
             Log.d("Button" , "Pressed $item")
-
         }
+*/
         holder.itemButton.setOnClickListener{
-            //val toast = Toast.makeText(getApplicationContext(),"$item added", Toast.LENGTH_SHORT).show()
-            //addItem(item)
+            Toast.makeText(context,"${item.name} added", Toast.LENGTH_SHORT).show()
+            Order().addItem(item)
+            Log.d("Item Select" , "${item.name} selected")
         }
         //holder.textView.text = myDataset.get(position).name
-        Log.d("callback called" , "called on bindviewholder")
+
     }
 
     override fun getItemCount(): Int {
@@ -72,5 +74,9 @@ class ViewAdapter(private val myDataset: MutableList<Base>) :
         Log.d("callback called" , "called here ")
         Log.d("mydataset" , myDataset.toString())
         myDataset.forEach { item -> Log.d("Called in callback:", item.name) }
+    }
+
+    interface ViewAdapterCallback {
+        fun onItemClicked(base: Base)
     }
 }

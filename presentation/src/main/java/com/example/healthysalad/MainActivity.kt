@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.data.Data
 import com.example.domain.Base
+import com.example.domain.Order
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         //Data().loadAllItems()
         //var repo: MutableMap<String, List<Base>> = mutableMapOf()
+        val order = Order()
 
         var titleFragmentInstance : TitleFragment = TitleFragment()
         this.supportFragmentManager.beginTransaction()

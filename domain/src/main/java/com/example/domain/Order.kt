@@ -6,15 +6,16 @@ class Order (
     (base : Base, CC, crunchy:Base, protein:Base)*/
 )
 {
-    val order : MutableList<Base> = mutableListOf()
+    private val order : MutableList<Base> = mutableListOf()
 
     fun addItem(base : Base) {
         order.add(base)
     }
 
-    /*
+
   fun getOrder(): MutableList<Base> {
         return this.order
     }
-*/
+
+
 }
