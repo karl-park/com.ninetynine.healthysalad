@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -13,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [StartScreen.newInstance] factory method to
+ * Use the [ChooseFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class StartScreen : Fragment() {
+class ChooseFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -26,6 +28,7 @@ class StartScreen : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -34,8 +37,17 @@ class StartScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //binding.customiseButton.setOnClickListener{}
-        return inflater.inflate(R.layout.fragment_start_screen, container, false)
+
+        val v: View = inflater.inflate(R.layout.fragment_choose, activity_main, false)
+        val openTitleFrag: Button = v.findViewById(R.id.open_title_frag)
+
+        openTitleFrag.setOnClickListener(View.OnClickListener {
+            activity!!.supportFragmentManager
+                .beginTransaction().replace(R.id.activity_main, TitleFragment())
+                .addToBackStack(null).commit()
+        })
+
+        return v
     }
 
     companion object {
@@ -45,12 +57,12 @@ class StartScreen : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment StartScreen.
+         * @return A new instance of fragment ChooseFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            StartScreen().apply {
+            ChooseFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
