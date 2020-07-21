@@ -52,7 +52,9 @@ class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
 */
         holder.itemButton.setOnClickListener{
             Toast.makeText(context,"${item.name} added", Toast.LENGTH_SHORT).show()
-            Order().addItem(item)
+            val order = Order
+            order.addItem(item)
+            Log.d("Item Ordered" , "Ordered : ${order.getOrder()}")
             Log.d("Item Select" , "${item.name} selected")
         }
         //holder.textView.text = myDataset.get(position).name
