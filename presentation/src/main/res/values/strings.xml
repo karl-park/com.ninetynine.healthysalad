@@ -15,5 +15,6 @@
     <string name="back_button_text">Back</string>
     <string name="next_button">next</string>
     <string name="select_protein_text">Select Protein</string>
+    <string name="select_ingredient_text">ingredient</string>
 
 </resources>
