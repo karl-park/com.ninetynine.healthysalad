@@ -1,8 +1,6 @@
 package com.example.domain
 
-
-class Order()
-{
+class Order(){
     private object Holder {
         val Instance = Order()
     }
@@ -19,10 +17,4 @@ class Order()
         }
 
     }
-    
-    /*map
-    (base : Base, CC, crunchy:Base, protein:Base)*/
-
-
-
 }
