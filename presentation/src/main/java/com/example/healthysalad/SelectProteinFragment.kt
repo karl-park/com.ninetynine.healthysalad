@@ -41,10 +41,9 @@ class SelectProteinFragment : Fragment() {
         val item = "protein"
         val v : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
         val data = Data()
-        val context = activity?.applicationContext
         val repoData = data.repoWithKey(item)
         val viewManager: RecyclerView.LayoutManager = GridLayoutManager(v.context, 2)
-        val viewAdapter = ViewAdapter(repoData, context)
+        val viewAdapter = ViewAdapter(repoData)
         val recyclerView : RecyclerView = v.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = viewManager
@@ -53,8 +52,7 @@ class SelectProteinFragment : Fragment() {
 
         data.loadItem(item) { dataResponse ->
             viewAdapter.updateMyDataset(dataResponse)
-            Log.d("callback repodata" , repoData.toString())
-            Log.d("callback called" , "called 1 ")
+            Log.d("repoData Callback:" , repoData.toString())
         }
 
         val openBackFrag: Button = v.findViewById(R.id.back_button)
@@ -90,4 +88,3 @@ class SelectProteinFragment : Fragment() {
             }
     }
 }
-class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)

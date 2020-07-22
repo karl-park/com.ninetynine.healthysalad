@@ -1,16 +1,13 @@
-import android.app.Activity
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.Base
 import com.example.healthysalad.*
 import com.example.domain.Order
 
-class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
+class ViewAdapter(private val myDataset: MutableList<Base>) :
     RecyclerView.Adapter<ViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -18,13 +15,13 @@ class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
     // class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
-
+/*
     var data = listOf<Base>()
     set (value){
         field = value
         notifyDataSetChanged()
     }
-    val context = context
+*/
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
@@ -32,7 +29,7 @@ class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
         val view = layoutInflater.inflate(R.layout.text_item_view, parent, false)
         // set the view's size, margins, paddings and layout parameters
         //holder.textView.text = myDataset.get(position).name
-        Log.d("callback called" , "view holder created ")
+        Log.d("LOG" , "view holder created ")
         return ViewHolder(view)
     }
 
@@ -45,13 +42,8 @@ class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
         //holder.itemName.text = item.name
         holder.itemButton.text = item.name
         holder.itemPosition = position
-/*        val button : Button = holder.itemButton
-        button.setOnClickListener {
-            Log.d("Button" , "Pressed $item")
-        }
-*/
         holder.itemButton.setOnClickListener{
-            Toast.makeText(context,"${item.name} added", Toast.LENGTH_SHORT).show()
+        Toast.makeText(it.context,"${item.name} added", Toast.LENGTH_SHORT).show()
             val order = Order
             order.addItem(item)
             Log.d("Item Ordered" , "Ordered : ${order.getOrder()}")
@@ -77,8 +69,8 @@ class ViewAdapter(private val myDataset: MutableList<Base>, context: Context?) :
         Log.d("mydataset" , myDataset.toString())
         myDataset.forEach { item -> Log.d("Called in callback:", item.name) }
     }
-
+/*
     interface ViewAdapterCallback {
         fun onItemClicked(base: Base)
-    }
+    }*/
 }
