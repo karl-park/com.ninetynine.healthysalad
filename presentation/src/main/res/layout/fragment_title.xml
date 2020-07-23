@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_title"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TitleFragment">
+
+    <TextView
+        android:id="@+id/select_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/text_top_margin"
+        android:text="@string/select_menu_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/salad_selections"
+        android:layout_width="@dimen/box_width"
+        android:layout_height="@dimen/box_height"
+        android:layout_marginStart="@dimen/box_side_margin"
+        android:layout_marginTop="@dimen/box_top_margin"
+        android:text="@string/salad_selections_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/create_salad"
+        android:layout_width="@dimen/box_width"
+        android:layout_height="@dimen/box_height"
+        android:layout_marginTop="@dimen/box_top_margin"
+        android:layout_marginEnd="@dimen/box_side_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/create_salad_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

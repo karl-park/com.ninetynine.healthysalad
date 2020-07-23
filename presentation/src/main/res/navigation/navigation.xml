@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startScreen">
+
+    <fragment
+        android:id="@+id/startScreen"
+        android:name="com.example.healthysalad.StartScreen"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/action_startScreen_to_chooseMenu"
+            app:destination="@id/chooseMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseMenu"
+        android:name="com.example.healthysalad.ChooseMenu"
+        android:label="fragment_choose_menu"
+        tools:layout="@layout/fragment_choose_menu" />
+</navigation>
