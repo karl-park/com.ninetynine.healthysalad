@@ -12,24 +12,23 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.Data
 
-
 /**
  * A simple [Fragment] subclass.
  * Use the [SelectIngredientFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SelectIngredientFragment (ingredientType : String) : Fragment() {
-    private val ingredientType = ingredientType
 
+private const val INGREDIENTTYPE = "type"
+class SelectIngredientFragment () : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view : View = inflater.inflate(R.layout.fragment_select_protein,container, false)
         val data = Data() // make singleton class also
-        val repoData = data.repoWithKey(this.ingredientType)
+        val repoData = data.repoWithKey(INGREDIENTTYPE)
         val viewManager: RecyclerView.LayoutManager = GridLayoutManager(view.context, 2)
         val viewAdapter: ViewAdapter = ViewAdapter(repoData)
-        //val itemName : String = ingredientType + "_recycler_view"
+       // val itemName : String = ingredientType + "_recycler_view"
         //val viewId : Int = R.id.{itemName}
-        val recyclerView : RecyclerView = view.findViewById(R.id.)
+        val recyclerView : RecyclerView = view.findViewById(R.id.protein_recycler_view)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
@@ -65,10 +64,10 @@ class SelectIngredientFragment (ingredientType : String) : Fragment() {
          * @return A new instance of fragment SelectProteinFragment.
          */
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(ingredientType : String) =
             SelectProteinFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putString(INGREDIENTTYPE, ingredientType)
                 }
             }
     }

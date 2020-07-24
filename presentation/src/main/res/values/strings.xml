@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">HealthySalad</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">This is the title fragment</string>
     <string name="choose_string">Choose Menu</string>
     <string name="customise_button_text">Customise</string>
