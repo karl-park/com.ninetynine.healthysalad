@@ -1,4 +1,4 @@
-package com.example.healthysalad
+/*package com.example.healthysalad
 
 import ViewAdapter
 import android.os.Bundle
@@ -88,3 +88,4 @@ class SelectProteinFragment : Fragment() {
             }
     }
 }
+*/

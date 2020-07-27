@@ -1,4 +1,4 @@
-package com.example.healthysalad
+/*package com.example.healthysalad
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -56,4 +56,4 @@ class SelectCrunchyFragment : Fragment() {
                 }
             }
     }
-}
+}*/

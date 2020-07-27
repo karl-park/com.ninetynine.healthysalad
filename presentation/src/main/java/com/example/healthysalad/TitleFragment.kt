@@ -49,9 +49,9 @@ class TitleFragment : Fragment() {
     ): View? {
 
         var v : View = inflater.inflate(R.layout.fragment_title,container, false)
-        val createSalad = SelectBaseFragment()
-        val openChooseFrag: Button = v.findViewById(R.id.create_salad)
 
+        val createSalad = SelectIngredientFragment.newInstance("base")
+        val openChooseFrag: Button = v.findViewById(R.id.create_salad)
         openChooseFrag.setOnClickListener {
             activity!!.supportFragmentManager
                 .beginTransaction().replace(R.id.activity_main, createSalad)
@@ -71,12 +71,7 @@ class TitleFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TitleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance() =
+            TitleFragment().apply {}
     }
 }

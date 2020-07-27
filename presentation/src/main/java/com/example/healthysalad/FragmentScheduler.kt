@@ -4,18 +4,25 @@ package com.example.healthysalad
 class FragmentScheduler(currentState : String){
     //var nextState : String = "Base"
     //var prevState : String = "Base"
-    val fragmentFlow : List<String> = listOf("base", "protein","crunchy")
+    val currentState = currentState
+    val fragmentFlow : List<String> = listOf("base", "protein","crunchy", "dressing","soft")
 
-    fun getNextState(currentState: String) : String {
+    fun getNextState() : String {
         val pos = fragmentFlow.indexOf(currentState)
+        var next : String = fragmentFlow.last()
+        if (pos < fragmentFlow.size){
+            next = fragmentFlow[pos+1]
+        }
 
-        return fragmentFlow[pos + 1]
+        return next
     }
 
-    fun getPrevState (currentState: String)  : String{
+    fun getPrevState ()  : String{
         val pos = fragmentFlow.indexOf(currentState)
-        return fragmentFlow[pos - 1]
+        var prev : String = fragmentFlow.first()
+        if(pos > fragmentFlow.size){
+            prev = fragmentFlow[pos-1]
+        }
+        return prev
     }
 }
-
-//TODO take care of range bounds

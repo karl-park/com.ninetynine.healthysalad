@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         //var repo: MutableMap<String, List<Base>> = mutableMapOf()
         val order = Order()
 
-        var titleFragmentInstance : TitleFragment = TitleFragment.newInstance(protein)
+        var titleFragmentInstance : TitleFragment = TitleFragment.newInstance()
         this.supportFragmentManager.beginTransaction()
             .replace(R.id.activity_main, titleFragmentInstance)
             .addToBackStack(null).commit()
