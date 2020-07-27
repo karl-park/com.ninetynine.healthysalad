@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.Data
+import kotlinx.android.synthetic.main.fragment_select_ingredient.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -22,11 +24,17 @@ class SelectIngredientFragment () : Fragment() {
     //private lateinit var INGREDIENTTYPE :String
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view : View = inflater.inflate(R.layout.fragment_select_ingredient,container, false)
+
+        view.select_ingredient.text = "Select " + INGREDIENTTYPE.capitalize()
+
         val data = Data() // make singleton class also
         val repoData = data.repoWithKey(INGREDIENTTYPE)
         val viewManager: RecyclerView.LayoutManager = GridLayoutManager(view.context, 2)
         val viewAdapter: ViewAdapter = ViewAdapter(repoData)
         val recyclerView : RecyclerView = view.findViewById(R.id.ingredient_recycler_view)
+
+
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
@@ -35,6 +43,8 @@ class SelectIngredientFragment () : Fragment() {
             viewAdapter.updateMyDataset(dataResponse)
             Log.d("repoData Callback:" , repoData.toString())
         }
+
+
 
         val openBackFrag: Button = view.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {
