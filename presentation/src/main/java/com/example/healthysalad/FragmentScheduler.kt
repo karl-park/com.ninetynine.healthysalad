@@ -1,9 +1,8 @@
 package com.example.healthysalad
 
 
-class FragmentScheduler(currentState : String){
-    val currentState = currentState
-    val fragmentFlow : List<String> = listOf("base", "protein","crunchy", "dressing","soft")
+class FragmentScheduler(private val currentState: String){
+    private val fragmentFlow : List<String> = listOf("base", "protein","crunchy", "dressing","soft")
 
     fun getNextState() : String {
         val pos = fragmentFlow.indexOf(currentState)
@@ -11,7 +10,6 @@ class FragmentScheduler(currentState : String){
         if (pos < fragmentFlow.size-1){ // position is 0-indexed while size is count
             next = fragmentFlow[pos+1]
         }
-
         return next
     }
 
