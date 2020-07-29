@@ -8,7 +8,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Data {
+object Data {
     var repo: MutableMap <String, MutableList<Base>> = mutableMapOf()
 
     private fun loadData(item: String, callback: (List<Base>) -> (Unit)) {

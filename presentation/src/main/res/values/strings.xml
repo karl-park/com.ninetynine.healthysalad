@@ -13,5 +13,6 @@
     <string name="back_button_text">Back</string>
     <string name="next_button">next</string>
     <string name="select_ingredient_text">ingredient</string>
+    <string name="order_summary">order summary</string>
 
 </resources>

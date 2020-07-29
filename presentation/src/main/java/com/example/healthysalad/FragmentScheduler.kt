@@ -21,4 +21,13 @@ class FragmentScheduler(private val currentState: String){
         }
         return prev
     }
+
+    fun getLastState() : String {
+        return fragmentFlow.last()
+    }
+
+    fun getFirstState() : String {
+        return fragmentFlow.first()
+    }
+
 }

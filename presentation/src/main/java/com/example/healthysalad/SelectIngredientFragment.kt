@@ -42,7 +42,7 @@ class SelectIngredientFragment () : Fragment() {
         //view.select_ingredient.text = "Select " + INGREDIENTTYPE.capitalize()
         view.select_ingredient.text = "Select " + type.capitalize()
 
-        val data = Data() // make singleton class also
+        val data = Data // make singleton class also
         val repoData = data.repoWithKey(type)
         val viewManager: RecyclerView.LayoutManager = GridLayoutManager(view.context, 2)
         val viewAdapter: ViewAdapter = ViewAdapter(repoData)
@@ -63,23 +63,45 @@ class SelectIngredientFragment () : Fragment() {
 
         val openBackFrag: Button = view.findViewById(R.id.back_button)
         openBackFrag.setOnClickListener {
-            activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, newInstance(FragmentScheduler(
-                    type).getPrevState())
-                )
-                .addToBackStack(null).commit()
-            Log.d("Prev Frag ", FragmentScheduler(type).getPrevState())
+            if (type == FragmentScheduler(type).getFirstState()) {
+                activity!!.supportFragmentManager
+                    .beginTransaction().replace(
+                        R.id.activity_main, TitleFragment()
+                        )
+                    .addToBackStack(null).commit()
+            }
+             else {
+                activity!!.supportFragmentManager
+                    .beginTransaction().replace(
+                        R.id.activity_main, newInstance(
+                            FragmentScheduler(
+                                type
+                            ).getPrevState()
+                        )
+                    )
+                    .addToBackStack(null).commit()
+                Log.d("Prev Frag ", FragmentScheduler(type).getPrevState())
+            }
         }
 
         val openNextFrag: Button = view.findViewById(R.id.next_button)
         openNextFrag.setOnClickListener{
-            activity!!.supportFragmentManager
-                .beginTransaction().replace(R.id.activity_main, newInstance(FragmentScheduler(
-                    type).getNextState()))
-                .addToBackStack(null).commit()
-            //Log.d("Next Frag ", FragmentScheduler(INGREDIENTTYPE).getNextState())
+            if (type == FragmentScheduler(type).getLastState()){
+                activity!!.supportFragmentManager
+                    .beginTransaction().replace(R.id.activity_main, OrderSummaryFragment())
+                    .addToBackStack(null).commit()
+                //Log.d("Next Frag ", FragmentScheduler(INGREDIENTTYPE).getNextState())
 
         }
+            else {
+                activity!!.supportFragmentManager
+                    .beginTransaction().replace(R.id.activity_main, newInstance(FragmentScheduler(
+                        type).getNextState()))
+                    .addToBackStack(null).commit()
+                //Log.d("Next Frag ", FragmentScheduler(INGREDIENTTYPE).getNextState())
+
+            }
+            }
         return view
     }
 
