@@ -20,7 +20,7 @@ class OrderSummaryViewAdapter(private val myDataset: Order) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // create a new view
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.text_item_view, parent, false)
+        val view = layoutInflater.inflate(R.layout.recycler_item_view, parent, false)
         // set the view's size, margins, paddings and layout parameters
         //holder.textView.text = myDataset.get(position).name
         Log.d("LOG", "view holder created ")

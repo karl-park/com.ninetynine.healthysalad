@@ -11,7 +11,7 @@
 /captures
 .cxx
 .idea/compiler.xml
-
+.idea
 # Built application files
 *.apk
 *.aar

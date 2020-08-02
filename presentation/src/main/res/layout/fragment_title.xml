@@ -5,9 +5,7 @@
     android:id="@+id/fragment_title"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".TitleFragment">
-
 
     <TextView
         android:id="@+id/select_menu"
