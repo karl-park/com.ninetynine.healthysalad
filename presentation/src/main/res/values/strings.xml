@@ -14,5 +14,7 @@
     <string name="next_button">next</string>
     <string name="select_ingredient_text">ingredient</string>
     <string name="order_summary">order summary</string>
+    <string name="last_ingredient_fragment">soft</string>
+    <string name="first_select_ingredient_fragment">base</string>
 
 </resources>

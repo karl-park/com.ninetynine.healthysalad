@@ -8,10 +8,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var titleFragmentInstance : TitleFragment = TitleFragment.newInstance()
+        var titleFragment : TitleFragment = TitleFragment.newInstance()
 
         this.supportFragmentManager.beginTransaction()
-            .replace(R.id.activity_main, titleFragmentInstance)
+            .replace(R.id.activity_main, titleFragment)
             .addToBackStack(null).commit()
     }
 }

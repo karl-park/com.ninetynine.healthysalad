@@ -32,7 +32,6 @@ class OrderSummaryViewAdapter(private val myDataset: Order) :
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         val item = myDataset.getOrder()[position]
-        val res = holder.itemView.context.resources
         holder.itemButton.text = item.name
 
     }
